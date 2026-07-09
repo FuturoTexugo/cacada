@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nome da Página — Tormento</title>
+
+<!-- 1. FONTES — sempre estas três, sempre nesta ordem -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- 2. TOKENS — cores, fontes-variável, resets. NUNCA redefinir isso numa página. -->
+<link rel="stylesheet" href="../assets/css/theme.css">
+
+<!-- 3. COMPONENTES — cabeçalho, cards, botões, badges, campos. Use-os antes de inventar algo novo. -->
+<link rel="stylesheet" href="../assets/css/components.css">
+
+<!-- 4. ESTILO PRÓPRIO DA PÁGINA — só o que for específico DESTA página/ferramenta.
+     Se você perceber que está redefinindo cor, fonte ou um .card do zero aqui,
+     pare: ou já existe em components.css, ou deveria ser promovido pra lá. -->
+<!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+<body>
+
+<!-- Cabeçalho padrão — copie exatamente, só ajuste o texto do breadcrumb -->
+<header class="site-header">
+  <a class="site-wordmark" href="../index.html" style="text-decoration:none;">TORMENTO<span class="dot">.</span></a>
+  <span class="site-breadcrumb"><a href="../index.html">início</a> / Nome da Aba</span>
+</header>
+
+<div class="wrap">
+
+  <!-- Exemplo de Card — a unidade padrão de qualquer bloco de conteúdo -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-seal">
+        <svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg>
+      </div>
+      <div class="card-title">Título do Card</div>
+      <div class="card-sub">nota opcional</div>
+    </div>
+    <div class="card-body">
+      <p>Parágrafo de exemplo, já com a cor e o espaçamento padrão de leitura do site.</p>
+    </div>
+  </div>
+
+  <!-- Exemplo de botões -->
+  <a class="btn btn-solid" href="#">Ação Principal</a>
+  <a class="btn btn-outline" href="#">Ação Secundária</a>
+
+  <!-- Exemplo de badge -->
+  <span class="badge live">disponível</span>
+  <span class="badge soon">em construção</span>
+
+</div>
+
+<footer class="site-footer">TORMENTO · arquivo oficial de A Caçada</footer>
+
+</body>
+</html>

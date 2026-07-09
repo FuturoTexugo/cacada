@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Caçada — Ficha do Caçador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/theme.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/ficha-personagem.css">
+</head>
+<body>
+
+<div class="vitals-bar">
+  <div class="vitals-top">
+    <a href="../../index.html" title="Voltar ao Tormento" style="color:var(--ink-faint); text-decoration:none; font-size:15px; flex-shrink:0;">🏠</a>
+    <input id="charName" class="char-name-input" placeholder="Nome do Caçador" maxlength="40">
+    <span class="grau-badge" id="grauBadge">Grau 1</span>
+    <button class="menu-btn" id="openMenu" title="Personagens">☰</button>
+  </div>
+  <div class="gauge-row">
+    <div class="gauge">
+      <div class="gauge-label"><span>PV</span><span id="pvGaugeText">0/0</span></div>
+      <div class="gauge-track"><div class="gauge-fill pv" id="pvGaugeFill" style="width:0%"></div></div>
+    </div>
+    <div class="gauge">
+      <div class="gauge-label"><span>RAZÃO</span><span id="razaoGaugeText">0/0</span></div>
+      <div class="gauge-track"><div class="gauge-fill razao" id="razaoGaugeFill" style="width:0%"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- INFORMAÇÕES BÁSICAS -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></div>
+      <div class="card-title">A Ficha</div>
+    </div>
+    <div class="card-body">
+      <div class="info-grid">
+        <div class="field"><label>Raça</label><input id="race" placeholder="Ex: Humano"></div>
+        <div class="field"><label>Arquétipo</label><input id="archetype" placeholder="Ex: Vanguarda"></div>
+        <div class="field"><label>Passado</label><input id="past" placeholder="Ex: Ex-Médico Militar"></div>
+        <div class="field"><label>Grau</label><input id="grau" type="number" min="1" value="1"></div>
+      </div>
+      <div class="xp-row">
+        <span class="xp-text" id="xpLabel">XP:</span>
+        <input id="xpAtual" type="number" min="0" value="0" style="width:56px;background:#141110;border:1px solid var(--hairline);color:var(--ink);border-radius:3px;padding:5px;font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:center;">
+        <div class="xp-track"><div class="xp-fill" id="xpFill" style="width:0%"></div></div>
+        <span class="xp-text" id="xpNeed">/10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATRIBUTOS -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></div>
+      <div class="card-title">Atributos Primais</div>
+      <div class="card-sub">d12 na pilha</div>
+    </div>
+    <div class="card-body">
+      <div class="attr-grid" id="attrGrid"></div>
+      <div class="budget-note" id="attrBudget"></div>
+    </div>
+  </div>
+
+  <!-- PERÍCIAS -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></div>
+      <div class="card-title">Perícias</div>
+      <div class="card-sub">sucessos garantidos</div>
+    </div>
+    <div class="card-body" id="skillsBody"></div>
+    <div class="card-body" style="padding-top:0;">
+      <div class="budget-note" id="skillBudget"></div>
+    </div>
+  </div>
+
+  <!-- RECURSOS DERIVADOS -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></div>
+      <div class="card-title">Recursos Derivados</div>
+    </div>
+    <div class="card-body">
+
+      <div class="res-block">
+        <div class="res-head">
+          <span class="res-label" style="color:var(--blood-bright);">Pontos de Vida</span>
+          <span class="res-formula">8 + (VIG×2) + bônus</span>
+        </div>
+        <div class="res-controls">
+          <input type="number" id="pvCurrent" class="res-current-input" value="0">
+          <div class="res-track"><div class="res-fill pv" id="pvFill" style="width:0%"></div></div>
+          <span class="res-max-tag" id="pvMaxTag">/ 0</span>
+        </div>
+        <div class="adj-row">
+          <div class="adj-field"><label>Bônus Arquétipo</label><input type="number" id="pvArchBonus" value="0"></div>
+          <div class="adj-field"><label>Bônus de Talentos</label><input type="number" id="pvTalentBonus" value="0"></div>
+        </div>
+      </div>
+
+      <div class="res-block">
+        <div class="res-head">
+          <span class="res-label" style="color:var(--verdigris-bright);">Razão</span>
+          <span class="res-formula">8 + (INS×2) + bônus</span>
+        </div>
+        <div class="res-controls">
+          <input type="number" id="razaoCurrent" class="res-current-input" value="0">
+          <div class="res-track"><div class="res-fill razao" id="razaoFill" style="width:0%"></div></div>
+          <span class="res-max-tag" id="razaoMaxTag">/ 0</span>
+        </div>
+        <div class="adj-row">
+          <div class="adj-field"><label>Bônus Arquétipo</label><input type="number" id="razaoArchBonus" value="0"></div>
+          <div class="adj-field"><label>Bônus de Talentos</label><input type="number" id="razaoTalentBonus" value="0"></div>
+        </div>
+      </div>
+
+      <div class="res-block">
+        <div class="res-head">
+          <span class="res-label" style="color:var(--brass-bright);">Fardo</span>
+          <span class="res-formula">10 + (FOR×2)</span>
+        </div>
+        <div class="res-controls">
+          <input type="number" id="fardoCurrent" class="res-current-input" value="0">
+          <div class="res-track"><div class="res-fill fardo" id="fardoFill" style="width:0%"></div></div>
+          <span class="res-max-tag" id="fardoMaxTag">/ 0</span>
+        </div>
+      </div>
+
+      <div class="res-block" style="margin-bottom:0;">
+        <div class="res-head">
+          <span class="res-label" style="color:var(--ink);">Defesa</span>
+          <span class="res-formula">2 sucessos, exigência varia com DES</span>
+        </div>
+        <div class="defesa-badge" id="defesaBadge">2 de 5+</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="save-indicator" id="saveIndicator">salvo automaticamente</div>
+</div>
+
+<!-- PAINEL DE PERSONAGENS -->
+<div class="overlay" id="overlay"></div>
+<div class="panel" id="panel">
+  <div class="panel-head">
+    <h3>Caçadores</h3>
+    <button class="panel-close" id="closePanel">✕</button>
+  </div>
+  <div class="panel-body">
+    <div id="charList"></div>
+    <button class="new-char-btn" id="newCharBtn">+ Novo Caçador</button>
+  </div>
+</div>
+
+<!-- MODAL DE ROLAGEM -->
+<div class="roll-overlay" id="rollOverlay">
+  <div class="roll-modal">
+    <div class="roll-modal-head">
+      <span class="roll-modal-title" id="rollTitle">Perícia</span>
+      <button class="roll-modal-close" id="rollClose">✕</button>
+    </div>
+    <div class="roll-modal-sub" id="rollSub">0d12 + 0 sucesso(s) garantido(s)</div>
+    <div class="dice-grid" id="diceGrid"></div>
+    <div class="roll-summary">
+      <div>
+        <div class="roll-summary-label">Sucessos totais</div>
+      </div>
+      <span class="roll-summary-total" id="rollTotal">0</span>
+    </div>
+    <div class="roll-breakdown" id="rollBreakdown">0 nos dados + 0 garantido(s)</div>
+    <button class="roll-again-btn" id="rollAgainBtn">Rolar novamente</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
