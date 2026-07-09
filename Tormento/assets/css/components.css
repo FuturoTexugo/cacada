@@ -1,0 +1,146 @@
+/* ============================================================
+   TORMENTO — Componentes Compartilhados
+   Peças reutilizáveis entre a Home e as abas (Regras, Apêndices,
+   Ambientação, Bestiário, Fichas). Depende de theme.css.
+   ============================================================ */
+
+/* ---------- Cabeçalho do site (presente em toda aba) ---------- */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px;
+  background:linear-gradient(180deg, #1a1613 0%, #14110e 100%);
+  border-bottom:1px solid var(--hairline);
+}
+.site-wordmark{
+  font-family:var(--font-display); font-weight:700; font-size:20px;
+  letter-spacing:0.5px; color:var(--ink); display:flex; align-items:baseline; gap:8px;
+}
+.site-wordmark .dot{color:var(--blood-bright);}
+.site-breadcrumb{
+  font-family:var(--font-mono); font-size:11px; color:var(--ink-faint);
+  display:flex; align-items:center; gap:6px;
+}
+.site-breadcrumb a{color:var(--ink-muted);}
+.site-breadcrumb a:hover{color:var(--brass-bright);}
+
+/* ---------- Selo circular (ícone de seção) ---------- */
+.seal{
+  width:22px; height:22px; border-radius:50%; border:1.5px solid var(--brass);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.seal svg{width:12px; height:12px; fill:var(--brass);}
+.seal.lg{width:44px; height:44px; border-width:2px;}
+.seal.lg svg{width:22px; height:22px;}
+
+/* ---------- Eyebrow / rótulo pequeno ---------- */
+.eyebrow{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--brass-bright); margin-bottom:8px; display:block;
+}
+
+/* ---------- Botões ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:11px 20px; border-radius:var(--radius); font-family:var(--font-body);
+  font-size:14px; font-weight:600; cursor:pointer; border:1px solid var(--brass);
+  text-decoration:none;
+}
+.btn-solid{background:var(--brass); color:var(--void);}
+.btn-solid:hover{background:var(--brass-bright); color:var(--void);}
+.btn-outline{background:none; color:var(--brass-bright);}
+.btn-outline:hover{background:rgba(171,122,60,0.12); color:var(--brass-bright);}
+
+/* ---------- Badge de status ---------- */
+.badge{
+  font-family:var(--font-mono); font-size:10px; letter-spacing:0.4px;
+  padding:3px 9px; border-radius:20px; border:1px solid var(--hairline);
+  color:var(--ink-muted); white-space:nowrap;
+}
+.badge.live{color:var(--verdigris-bright); border-color:var(--verdigris);}
+.badge.soon{color:var(--ink-faint);}
+
+/* ---------- Grid de navegação (cards de seção) ---------- */
+.nav-grid{
+  display:grid; grid-template-columns:1fr; gap:14px;
+}
+@media(min-width:640px){
+  .nav-grid{grid-template-columns:1fr 1fr;}
+}
+.nav-card{
+  background:var(--panel); border:1px solid var(--hairline-soft); border-radius:var(--radius);
+  padding:18px; text-decoration:none; color:var(--ink);
+  display:flex; flex-direction:column; gap:10px;
+  transition:border-color .15s ease, transform .15s ease;
+}
+.nav-card:hover{border-color:var(--brass); transform:translateY(-2px); color:var(--ink);}
+.nav-card-top{display:flex; align-items:center; justify-content:space-between;}
+.nav-card-title{font-family:var(--font-display); font-weight:700; font-size:19px;}
+.nav-card-desc{font-size:13px; color:var(--ink-muted); line-height:1.5;}
+.nav-card-foot{
+  margin-top:auto; font-family:var(--font-mono); font-size:11px; color:var(--brass-bright);
+  display:flex; align-items:center; gap:5px;
+}
+
+.nav-card.featured{
+  border-color:var(--brass); background:linear-gradient(160deg, var(--panel) 0%, #241e17 100%);
+}
+
+/* ---------- Rodapé ---------- */
+.site-footer{
+  text-align:center; padding:30px 20px 40px; font-family:var(--font-mono);
+  font-size:11px; color:var(--ink-faint); border-top:1px solid var(--hairline-soft); margin-top:40px;
+}
+
+/* ---------- Página "em construção" (placeholder de abas futuras) ---------- */
+.placeholder-wrap{
+  max-width:560px; margin:60px auto; padding:0 20px; text-align:center;
+}
+.placeholder-wrap .seal{margin:0 auto 18px;}
+.placeholder-wrap h1{font-family:var(--font-display); font-size:28px; margin:0 0 10px;}
+.placeholder-wrap p{color:var(--ink-muted); font-size:14px; line-height:1.6;}
+
+/* ---------- Wrap de página (fichas) ---------- */
+.wrap{
+  max-width:640px; margin:0 auto; padding:16px 14px 40px;
+}
+
+/* ---------- Card genérico ---------- */
+.card{
+  background:var(--panel); border:1px solid var(--hairline-soft);
+  border-radius:var(--radius); margin-bottom:14px; overflow:hidden;
+}
+.card-head{
+  display:flex; align-items:center; gap:10px;
+  padding:14px 16px; border-bottom:1px solid var(--hairline-soft);
+}
+.card-seal{
+  width:28px; height:28px; border-radius:50%; border:1.5px solid var(--brass);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.card-seal svg{width:14px; height:14px; fill:var(--brass);}
+.card-title{
+  font-family:var(--font-display); font-weight:700; font-size:17px; color:var(--ink);
+}
+.card-sub{
+  margin-left:auto; font-family:var(--font-mono); font-size:10px; color:var(--ink-faint);
+}
+.card-body{
+  padding:14px 16px;
+}
+
+/* ---------- Campo de formulário ---------- */
+.field{display:flex; flex-direction:column; gap:4px;}
+.field label{
+  font-family:var(--font-mono); font-size:10px; text-transform:uppercase;
+  letter-spacing:0.5px; color:var(--ink-faint);
+}
+.field input{
+  background:#141110; border:1px solid var(--hairline); color:var(--ink);
+  border-radius:var(--radius); padding:8px 10px; font-family:var(--font-body); font-size:14px;
+}
+
+/* ---------- Grid de campos ---------- */
+.info-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;
+}

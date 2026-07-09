@@ -1,0 +1,93 @@
+/* ============================================================
+   TORMENTO — Leitor de Apêndices
+   Depende de theme.css e components.css. Usado por qualquer
+   página que monte um leitor via markdown-reader.js.
+   ============================================================ */
+
+.reader-shell{
+  max-width:760px; margin:0 auto; padding:0 20px 60px;
+}
+
+/* ---------- Navegação de categorias (topo) ---------- */
+.reader-tabs{
+  position:sticky; top:0; z-index:40;
+  display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  padding:14px 20px; margin:0 -20px 24px;
+  background:linear-gradient(180deg, #1a1613 0%, #14110e 100%);
+  border-bottom:1px solid var(--hairline);
+  scrollbar-width:none;
+}
+.reader-tabs::-webkit-scrollbar{display:none;}
+.reader-tab{
+  flex-shrink:0; font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.3px;
+  color:var(--ink-muted); padding:7px 14px; border:1px solid var(--hairline-soft);
+  border-radius:20px; white-space:nowrap; text-decoration:none;
+}
+.reader-tab:hover{color:var(--brass-bright); border-color:var(--brass);}
+.reader-tab.active{color:var(--void); background:var(--brass); border-color:var(--brass);}
+
+/* ---------- Categorias e grupos ---------- */
+.reader-category{ margin-bottom:36px; scroll-margin-top:70px; }
+.reader-category-title{
+  font-family:var(--font-display); font-weight:700; font-size:24px; color:var(--ink);
+  margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid var(--hairline-soft);
+}
+.reader-group-title{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:1.2px; text-transform:uppercase;
+  color:var(--brass-bright); margin:22px 0 8px;
+}
+
+/* ---------- Entrada (acordeão) ---------- */
+.reader-entry{
+  border:1px solid var(--hairline-soft); border-radius:var(--radius);
+  background:var(--panel); margin-bottom:8px; overflow:hidden; scroll-margin-top:70px;
+}
+.reader-entry-head{
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  background:none; border:none; cursor:pointer; text-align:left;
+  padding:13px 16px; font-family:var(--font-body); font-size:14.5px; font-weight:600; color:var(--ink);
+}
+.reader-entry-arrow{color:var(--brass-bright); transition:transform .18s ease; font-size:12px;}
+.reader-entry.open .reader-entry-arrow{transform:rotate(90deg);}
+.reader-entry-body{
+  max-height:0; overflow:hidden; transition:max-height .25s ease;
+}
+.reader-entry.open .reader-entry-body{ max-height:4000px; }
+.reader-entry-content{
+  padding:4px 16px 18px; border-top:1px solid var(--hairline-soft);
+  font-size:14px; line-height:1.7; color:var(--ink-muted);
+}
+.reader-loading, .reader-error{ font-family:var(--font-mono); font-size:12px; padding-top:12px; }
+.reader-error{ color:var(--rust); }
+
+/* ---------- Tipografia do markdown renderizado ---------- */
+.reader-entry-content h1, .reader-entry-content h2, .reader-entry-content h3{
+  font-family:var(--font-display); color:var(--ink); margin:16px 0 8px; font-weight:700;
+}
+.reader-entry-content h1{font-size:20px;}
+.reader-entry-content h2{font-size:17px;}
+.reader-entry-content h3{font-size:15px; color:var(--brass-bright);}
+.reader-entry-content p{margin:0 0 10px;}
+.reader-entry-content ul, .reader-entry-content ol{margin:0 0 10px; padding-left:20px;}
+.reader-entry-content li{margin-bottom:4px;}
+.reader-entry-content strong{color:var(--ink);}
+.reader-entry-content a{color:var(--brass-bright); border-bottom:1px dotted var(--brass);}
+.reader-entry-content blockquote{
+  margin:10px 0; padding:8px 14px; border-left:2px solid var(--brass);
+  background:var(--panel-2); color:var(--ink-muted); font-size:13px;
+}
+.reader-entry-content code{
+  font-family:var(--font-mono); font-size:12.5px; background:var(--panel-2);
+  padding:1px 5px; border-radius:3px; color:var(--brass-bright);
+}
+.reader-entry-content table{
+  width:100%; border-collapse:collapse; margin:10px 0; font-size:12.5px;
+}
+.reader-entry-content th, .reader-entry-content td{
+  border:1px solid var(--hairline-soft); padding:6px 8px; text-align:left;
+}
+.reader-entry-content th{
+  font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; color:var(--brass-bright);
+  background:var(--panel-2);
+}
+.reader-entry-content hr{border:none; border-top:1px solid var(--hairline-soft); margin:16px 0;}

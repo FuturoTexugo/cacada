@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tormento — Arquivo de A Caçada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/theme.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<style>
+  .hero{ max-width:720px; margin:0 auto; padding:56px 20px 36px; text-align:center; }
+  .hero .eyebrow{display:flex; align-items:center; justify-content:center; gap:8px;}
+  .hero h1{
+    font-family:var(--font-display); font-weight:700; font-size:clamp(36px,6.5vw,52px);
+    margin:6px 0 4px; letter-spacing:0.5px; color:var(--ink);
+  }
+  .hero .subtitle{
+    font-family:var(--font-mono); font-size:13px; color:var(--ink-muted);
+    letter-spacing:0.6px; margin-bottom:22px;
+  }
+  .hero p{ color:var(--ink-muted); font-size:15px; line-height:1.7; margin:0 auto 12px; max-width:580px; }
+  .hero .lede{color:var(--ink); font-size:16px;}
+  .hero-divider{ width:60px; height:1px; background:var(--hairline); margin:24px auto; }
+  .sections-wrap{max-width:760px; margin:0 auto; padding:10px 20px 20px;}
+  .sections-label{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--ink-faint); margin:36px 0 14px;
+  }
+
+  /* ---------- Blocos informativos (técnico / contato) ---------- */
+  .info-panel{
+    background:var(--panel); border:1px solid var(--hairline-soft); border-radius:var(--radius);
+    padding:18px 20px; margin-bottom:14px;
+  }
+  .info-panel-head{
+    display:flex; align-items:center; gap:10px; margin-bottom:12px;
+  }
+  .info-panel-title{
+    font-family:var(--font-display); font-weight:700; font-size:17px; color:var(--ink);
+  }
+  .info-list{ list-style:none; margin:0; padding:0; }
+  .info-list li{
+    display:flex; justify-content:space-between; gap:14px;
+    padding:9px 0; border-bottom:1px solid var(--hairline-soft);
+    font-size:13.5px; color:var(--ink-muted); line-height:1.5;
+  }
+  .info-list li:last-child{border-bottom:none;}
+  .info-list .k{color:var(--ink); flex-shrink:0; font-weight:600;}
+  .info-list .v{text-align:right;}
+
+  .contact-grid{
+    display:grid; grid-template-columns:1fr; gap:10px;
+  }
+  @media(min-width:560px){ .contact-grid{grid-template-columns:1fr 1fr;} }
+  .contact-item{
+    display:flex; align-items:center; gap:10px;
+    background:var(--panel-2); border:1px solid var(--hairline-soft); border-radius:var(--radius);
+    padding:11px 14px; text-decoration:none; color:var(--ink);
+    font-size:13.5px;
+  }
+  .contact-item:hover{border-color:var(--brass); color:var(--ink);}
+  .contact-item .seal{flex-shrink:0;}
+  .contact-item-label{display:flex; flex-direction:column; gap:1px;}
+  .contact-item-label strong{font-size:13.5px; font-weight:600;}
+  .contact-item-label span{font-family:var(--font-mono); font-size:10.5px; color:var(--ink-faint);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="site-wordmark">TORMENTO<span class="dot">.</span></span>
+  <span class="site-breadcrumb">arquivo de <strong style="color:var(--ink-muted); font-weight:500;">A Caçada</strong></span>
+</header>
+
+<section class="hero">
+  <span class="eyebrow">
+    <span class="seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+    Site oficial do projeto
+  </span>
+  <h1>Tormento</h1>
+  <div class="subtitle">o arquivo completo de A Caçada</div>
+
+  <p class="lede">Tormento é o repositório digital de <strong>A Caçada</strong>, um RPG de mesa gótico-industrial ambientado em 1877. Aqui você encontra tudo que precisa pra jogar: fichas interativas, regras completas, bestiário e material de ambientação.</p>
+  <p>O projeto está em desenvolvimento ativo — algumas seções já estão prontas pra uso na mesa, outras ainda em construção (marcadas abaixo). As fichas rodam direto no navegador e salvam automaticamente no seu dispositivo, sem necessidade de conta ou instalação.</p>
+
+  <div class="hero-divider"></div>
+</section>
+
+<div class="sections-wrap">
+  <div class="sections-label">Ferramentas de Jogo</div>
+  <div class="nav-grid">
+
+    <a class="nav-card featured" href="fichas/personagem/index.html">
+      <div class="nav-card-top">
+        <span class="seal lg"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+        <span class="badge live">disponível</span>
+      </div>
+      <span class="nav-card-title">Criar Ficha de Caçador</span>
+      <span class="nav-card-desc">Atributos, perícias, recursos derivados calculados na hora e um rolador de dados embutido. Salva sozinha, direto no seu dispositivo.</span>
+      <span class="nav-card-foot">Abrir ficha →</span>
+    </a>
+
+    <a class="nav-card" href="fichas/monstro/index.html">
+      <div class="nav-card-top">
+        <span class="seal lg"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+        <span class="badge soon">em construção</span>
+      </div>
+      <span class="nav-card-title">Ficha de Monstro &amp; Bestiário</span>
+      <span class="nav-card-desc">Painel do Mestre para conduzir presas em combate — fraquezas, comportamento e status de cena — e também o catálogo completo de criaturas conhecidas.</span>
+      <span class="nav-card-foot">Abrir ficha →</span>
+    </a>
+
+  </div>
+
+  <div class="sections-label">Biblioteca</div>
+  <div class="nav-grid">
+
+    <a class="nav-card" href="regras/index.html">
+      <div class="nav-card-top">
+        <span class="seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+        <span class="badge soon">em construção</span>
+      </div>
+      <span class="nav-card-title">Regras Completas</span>
+      <span class="nav-card-desc">Testes, criação, combate, magia, economia e o Ciclo da Caçada — o motor mecânico do jogo.</span>
+      <span class="nav-card-foot">Explorar →</span>
+    </a>
+
+    <a class="nav-card" href="apendices/index.html">
+      <div class="nav-card-top">
+        <span class="seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+        <span class="badge soon">em construção</span>
+      </div>
+      <span class="nav-card-title">Apêndices e Referências</span>
+      <span class="nav-card-desc">Glossário, arquétipos, raças, passados, talentos, itens e os círculos de magia.</span>
+      <span class="nav-card-foot">Explorar →</span>
+    </a>
+
+    <a class="nav-card" href="ambientacao/index.html">
+      <div class="nav-card-top">
+        <span class="seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+        <span class="badge soon">em construção</span>
+      </div>
+      <span class="nav-card-title">Ambientação e Lore</span>
+      <span class="nav-card-desc">O mundo de 1877, suas facções, lendas e a natureza real da Infestação.</span>
+      <span class="nav-card-foot">Explorar →</span>
+    </a>
+
+  </div>
+
+  <!-- ================= DETALHES TÉCNICOS ================= -->
+  <div class="sections-label">Sobre o Site</div>
+  <div class="info-panel">
+    <div class="info-panel-head">
+      <span class="seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+      <span class="info-panel-title">Detalhes Técnicos</span>
+    </div>
+    <ul class="info-list">
+      <li><span class="k">Tecnologia</span><span class="v">HTML, CSS e JavaScript puro — sem frameworks, sem build</span></li>
+      <li><span class="k">Armazenamento das fichas</span><span class="v">Local, no próprio navegador do dispositivo</span></li>
+      <li><span class="k">Requer conta ou login</span><span class="v">Não</span></li>
+      <li><span class="k">Compatibilidade</span><span class="v">Qualquer navegador moderno, celular ou desktop</span></li>
+      <li><span class="k">Status do projeto</span><span class="v">Em desenvolvimento ativo</span></li>
+      <li><span class="k">Código-fonte</span><span class="v">[link do repositório, se público]</span></li>
+    </ul>
+  </div>
+
+  <!-- ================= CONTATO / COMUNIDADE ================= -->
+  <div class="sections-label">Contato &amp; Comunidade</div>
+  <div class="info-panel">
+    <div class="contact-grid">
+
+      <a class="contact-item" href="[link do Discord]">
+        <span class="seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+        <span class="contact-item-label">
+          <strong>Discord</strong>
+          <span>comunidade, dúvidas e feedback</span>
+        </span>
+      </a>
+
+      <a class="contact-item" href="mailto:[seu email aqui]">
+        <span class="seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+        <span class="contact-item-label">
+          <strong>E-mail</strong>
+          <span>contato direto</span>
+        </span>
+      </a>
+
+      <a class="contact-item" href="[link de report de bugs/formulário]">
+        <span class="seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+        <span class="contact-item-label">
+          <strong>Reportar um bug</strong>
+          <span>ficha travou? algo quebrou?</span>
+        </span>
+      </a>
+
+      <a class="contact-item" href="[link de redes sociais, se houver]">
+        <span class="seal"><svg viewBox="0 0 24 24"><path d="M12 2 L14.5 9 L22 9 L16 13.5 L18 21 L12 16.5 L6 21 L8 13.5 L2 9 L9.5 9 Z"/></svg></span>
+        <span class="contact-item-label">
+          <strong>Redes sociais</strong>
+          <span>novidades do projeto</span>
+        </span>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">TORMENTO · arquivo oficial de A Caçada</footer>
+
+</body>
+</html>
